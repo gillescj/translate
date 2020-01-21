@@ -1,0 +1,221 @@
+:root {
+    --greyBlue: rgb(216, 227, 231);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans",sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-gap: 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    border: none;
+    background:linear-gradient(to right, #33bdef 5%, #019ad2 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1,1.1);
+        transition: all 0.5s;
+        box-shadow: 0 20px 30px -11px rgba(31,35,65,0.37);
+        background:linear-gradient(to right, #2999c2 5%, #01739c 100%);
+    }
+}
+
+.lang-swap{
+    padding: 1rem 1rem;
+}
+
+.loader img {
+    animation: rotate 1.5s infinite linear;
+
+}
+
+input[type="text"]{
+    height: 3rem;
+    max-width: 75rem;
+    font-size: 1rem;
+    &:focus {
+        border: 1px solid rgb(50, 127, 199);
+    }
+}
+
+select{
+    height: 3rem;
+    font-size: 1rem;
+    &:focus {
+        border: 1px solid rgb(50, 127, 199);
+    }
+}
+
+.main-header {
+    display: grid;
+    background: linear-gradient(to right, rgb(119, 194, 255) 5%, rgb(65, 128, 246) 100%);
+    color: white;
+    cursor: pointer;
+    .main-title {
+        text-align: center;
+        margin: 0.5rem;
+    }
+    border-radius: 0.3rem;
+}
+
+.search-translation-container{
+    display: grid;
+    grid-gap: 1rem;
+    justify-self: center;
+    grid-template-columns: minmax(10rem, 60rem);
+    background-color: var(--greyBlue);
+    padding: 1rem 0.5rem;
+    border-radius: 0.25rem;
+    .search-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        .language-selection {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            grid-gap: 1rem;
+        }
+    }
+
+    .translation-container {
+        display: grid;
+    }
+}
+
+.extra-outputs-container {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(10rem, 60rem);
+    // max-width: 60rem;
+    justify-self:center;
+    // width: 100%;
+    .extra-info {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1rem;
+        background-color: var(--greyBlue);
+        padding: 1rem;
+        border: 0.1rem solid #2572b4;
+        .extra-info-title{
+            margin: 0;
+            padding: 0;
+            font-size: 1rem;
+        }
+    }
+    .extra-info-header{
+        background-color:#2572b4;
+        border-color:#2572b4;
+        color: white;
+        padding: 0.8rem 1rem;
+        border-top-left-radius: 0.4rem;
+        border-top-right-radius: 0.4rem;
+    }
+}
+
+.attribution{
+    display: grid;
+    justify-self: center;
+}
+
+.loader {
+    display: grid;
+    justify-content: center;
+}
+  
+// Loading animation style from https://loading.io/css/
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #2572b4;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+@media only screen and (min-width: 30rem){
+    .search-translation-container{
+        .search-container{
+            grid-template-columns: 1fr auto;
+            .search-btn {
+                width: fit-content;
+                justify-self: end;
+            } 
+            .language-selection {
+                grid-column: 1 / -1;
+                display: grid;
+                grid-template-columns: 1fr auto 1fr;
+                grid-gap: 1rem;
+            }
+        }
+    }
+    .main-header {
+        .main-title {
+            margin: 1rem;
+        }
+    }
+}
