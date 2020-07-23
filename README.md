@@ -1,3 +1,3 @@
-[Translate](https://www.projects2.colingillespie.xyz/translate/)
+# Translate
 
 Translation app using vanilla JS modules and Sass.
